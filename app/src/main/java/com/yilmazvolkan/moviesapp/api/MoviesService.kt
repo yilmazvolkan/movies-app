@@ -8,5 +8,5 @@ import retrofit2.http.Query
 interface MoviesService {
 
     @GET("tv/popular")
-    fun fetchMovies(@Query("page") page: Int): Observable<TvShowsResponse>
+    fun getMovies(@Query("page") page: Int): Observable<TvShowsResponse>
 }
