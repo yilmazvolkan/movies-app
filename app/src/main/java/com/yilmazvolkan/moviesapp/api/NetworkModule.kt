@@ -7,6 +7,7 @@ import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
 import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory
 import retrofit2.converter.gson.GsonConverterFactory
+import retrofit2.create
 import javax.inject.Singleton
 
 @Module
@@ -19,6 +20,7 @@ class NetworkModule {
         }
     }
 
+    // Timeout default is 10 seconds
     @Provides
     @Singleton
     fun provideOkHttpClient(
@@ -40,5 +42,11 @@ class NetworkModule {
             .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
             .addConverterFactory(GsonConverterFactory.create())
             .build()
+    }
+
+    @Provides
+    @Singleton
+    fun provideMoviesService(retrofit: Retrofit): MoviesService {
+        return retrofit.create()
     }
 }
