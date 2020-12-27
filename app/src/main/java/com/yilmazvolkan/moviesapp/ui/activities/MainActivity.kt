@@ -1,4 +1,4 @@
-package com.yilmazvolkan.moviesapp.ui
+package com.yilmazvolkan.moviesapp.ui.activities
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle

@@ -1,6 +1,7 @@
 package com.yilmazvolkan.moviesapp.repository
 
 import com.yilmazvolkan.moviesapp.models.Resource
+import com.yilmazvolkan.moviesapp.models.map
 import com.yilmazvolkan.moviesapp.models.TvShowItem
 import io.reactivex.Observable
 import javax.inject.Inject

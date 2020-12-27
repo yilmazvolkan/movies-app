@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="viewState"
+            type="com.yilmazvolkan.moviesapp.ui.viewStates.TVShowsItemViewState" />
+
+    </data>
+
+
+    <com.google.android.material.card.MaterialCardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@android:color/white"
+        android:layout_marginLeft="@dimen/movies_card_spacing"
+        android:layout_marginTop="@dimen/movies_card_spacing"
+        android:layout_marginRight="@dimen/movies_card_spacing"
+        android:minHeight="200dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:layout_weight="2"
+                android:layout_width="0dp"
+                android:layout_height="200dp"
+                android:scaleType="centerCrop"
+                tools:src="@tools:sample/backgrounds/scenic"
+                app:imageUrl="@{viewState.imageUrl}"/>
+
+            <RelativeLayout
+                android:layout_weight="4"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_gravity="bottom"
+                android:orientation="vertical">
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/text_view_title"
+                    android:padding="@dimen/text_view_spacing"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="sans-serif"
+                    android:text="@{viewState.tvShowName}"
+                    android:textColor="@android:color/holo_purple"
+                    android:textStyle="bold"
+                    android:singleLine="true"
+                    android:layout_alignParentTop="true"
+                    style="@style/TextAppearance.MaterialComponents.Body2"
+                    tools:text="@tools:sample/lorem/random"/>
+
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/text_view_overview"
+                    android:padding="@dimen/text_view_spacing"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="sans-serif"
+                    android:layout_below="@+id/text_view_title"
+                    android:layout_above="@+id/text_view_date"
+                    android:text="@{viewState.tvShowOverview}"
+                    android:textColor="@android:color/darker_gray"
+                    android:textStyle="bold"
+                    style="@style/TextAppearance.MaterialComponents.Caption"
+                    tools:text="@tools:sample/lorem/random"/>
+
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/text_view_voteAverage"
+                    android:padding="@dimen/text_view_spacing"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentStart="true"
+                    android:layout_toStartOf="@+id/text_view_date"
+                    android:layout_alignParentBottom="true"
+                    android:fontFamily="sans-serif"
+                    android:text="@{viewState.voteAverage}"
+                    android:textColor="@android:color/darker_gray"
+                    android:textStyle="bold"
+                    style="@style/TextAppearance.MaterialComponents.Caption"
+                    tools:text="@tools:sample/us_zipcodes"/>
+
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/text_view_date"
+                    android:padding="@dimen/text_view_spacing"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="sans-serif"
+                    android:layout_alignParentEnd="true"
+                    android:layout_alignParentBottom="true"
+                    android:text="@{viewState.tvAirDate}"
+                    android:textColor="@android:color/darker_gray"
+                    android:textStyle="bold"
+                    style="@style/TextAppearance.MaterialComponents.Caption"
+                    tools:text="@tools:sample/date/ddmmyy"/>
+
+            </RelativeLayout>
+        </LinearLayout>
+
+
+    </com.google.android.material.card.MaterialCardView>
+</layout>
