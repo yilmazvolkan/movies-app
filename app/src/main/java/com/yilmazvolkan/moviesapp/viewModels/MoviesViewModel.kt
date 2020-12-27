@@ -16,10 +16,10 @@ class MoviesViewModel @ViewModelInject constructor(
     ReactiveViewModel() {
 
     private val contents = MutableLiveData<List<TvShowItem>>()
-    val contents_: LiveData<List<TvShowItem>> = contents
+    val getContents: LiveData<List<TvShowItem>> = contents
 
     private val status = MutableLiveData<TVShowsStatusViewState>()
-    val status_: LiveData<TVShowsStatusViewState> = status
+    val getStatus: LiveData<TVShowsStatusViewState> = status
 
     fun fetchMovies(page: Int) {
         moviesFactory

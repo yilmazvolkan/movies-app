@@ -1,7 +1,5 @@
 package com.yilmazvolkan.moviesapp.viewModels
 
-import androidx.lifecycle.LifecycleOwner
-import androidx.lifecycle.LiveData
 import com.yilmazvolkan.moviesapp.models.Resource
 import io.reactivex.Observable
 import io.reactivex.disposables.CompositeDisposable

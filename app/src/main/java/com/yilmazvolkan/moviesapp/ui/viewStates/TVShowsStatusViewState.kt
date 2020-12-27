@@ -3,7 +3,7 @@ package com.yilmazvolkan.moviesapp.ui.viewStates
 import com.yilmazvolkan.moviesapp.models.Status
 
 class TVShowsStatusViewState(
-    val status: Status
+    private val status: Status
 ) {
     fun isLoading() = status is Status.Loading
 

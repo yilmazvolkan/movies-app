@@ -20,4 +20,8 @@ class MoviesFactory @Inject constructor(
                 }
             }.startWith(Resource.Loading)
     }
+
+    companion object {
+        const val FIRST_PAGE = 1
+    }
 }
