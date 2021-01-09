@@ -10,4 +10,6 @@ class TVShowsStatusViewState(
     fun getErrorMessage() = if (status is Status.Error) status.exception.message else ""
 
     fun shouldShowErrorMessage() = status is Status.Error
+
+    fun isSuccess() = status is Status.Content
 }
