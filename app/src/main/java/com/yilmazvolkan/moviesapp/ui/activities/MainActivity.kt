@@ -7,7 +7,9 @@ import androidx.activity.viewModels
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.ViewModelProvider
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.yilmazvolkan.moviesapp.R
+import com.yilmazvolkan.moviesapp.adapters.TVShowsFeedAdapter
 import com.yilmazvolkan.moviesapp.databinding.ActivityMainBinding
 import com.yilmazvolkan.moviesapp.models.TvShowItem
 import com.yilmazvolkan.moviesapp.repository.MoviesFactory.Companion.FIRST_PAGE
@@ -24,16 +26,25 @@ class MainActivity : AppCompatActivity() {
 
     private val moviesViewModel: MoviesViewModel by viewModels()
 
+    @Inject
+    internal lateinit var tvShowsFeedAdapter: TVShowsFeedAdapter
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
         binding = DataBindingUtil.setContentView(this, R.layout.activity_main)
 
+        initTVShowsRecyclerView()
         observeMoviesViewModel()
 
         if (savedInstanceState == null){
             fetchMovies(FIRST_PAGE)
+        }
+    }
+
+    private fun initTVShowsRecyclerView() {
+        binding.recyclerView.apply {
+            adapter = tvShowsFeedAdapter
         }
     }
 
@@ -52,7 +63,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun renderTVShows(contents: List<TvShowItem>) {
-        //tvShowsFeedAdapter.setTvShows(contents)
+        tvShowsFeedAdapter.setTvShows(contents)
     }
 
     private fun fetchMovies(page: Int) {

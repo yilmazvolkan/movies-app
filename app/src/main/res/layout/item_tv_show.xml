@@ -66,6 +66,7 @@
                     android:layout_above="@+id/text_view_date"
                     android:text="@{viewState.tvShowOverview}"
                     android:textColor="@android:color/darker_gray"
+                    android:maxLines="8"
                     android:textStyle="bold"
                     style="@style/TextAppearance.MaterialComponents.Caption"
                     tools:text="@tools:sample/lorem/random"/>
