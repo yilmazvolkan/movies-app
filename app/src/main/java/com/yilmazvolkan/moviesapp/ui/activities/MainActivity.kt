@@ -13,6 +13,7 @@ import com.yilmazvolkan.moviesapp.adapters.TVShowsFeedAdapter
 import com.yilmazvolkan.moviesapp.databinding.ActivityMainBinding
 import com.yilmazvolkan.moviesapp.models.TvShowItem
 import com.yilmazvolkan.moviesapp.repository.MoviesFactory.Companion.FIRST_PAGE
+import com.yilmazvolkan.moviesapp.ui.EndlessScrollListener
 import com.yilmazvolkan.moviesapp.ui.observeNonNull
 import com.yilmazvolkan.moviesapp.ui.viewStates.TVShowsStatusViewState
 import com.yilmazvolkan.moviesapp.viewModels.MoviesViewModel
@@ -43,8 +44,15 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun initTVShowsRecyclerView() {
+        val linearLayoutManager = LinearLayoutManager(this)
         binding.recyclerView.apply {
             adapter = tvShowsFeedAdapter
+            layoutManager = linearLayoutManager
+            addOnScrollListener(object : EndlessScrollListener(linearLayoutManager) {
+                override fun onLoadMore(page: Int) {
+                    fetchMovies(page)
+                }
+            })
         }
     }
 
@@ -69,5 +77,4 @@ class MainActivity : AppCompatActivity() {
     private fun fetchMovies(page: Int) {
         moviesViewModel.fetchMovies(page)
     }
-
 }
