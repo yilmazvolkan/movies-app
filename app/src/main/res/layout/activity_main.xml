@@ -17,6 +17,32 @@
         android:background="@color/colorBackground"
         android:orientation="vertical">
 
+        <RelativeLayout
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/toolbar_height"
+            android:background="@color/primary"
+            android:gravity="center"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/text_view_desc"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentBottom="true"
+                android:layout_alignParentStart="true"
+                android:gravity="center"
+                android:singleLine="true"
+                android:text="@string/toolbar_text"
+                android:textColor="@color/white"
+                android:textSize="@dimen/toolbar_text_size"
+                android:textStyle="bold" />
+        </RelativeLayout>
+
+
         <TextView
             tools:text="@tools:sample/lorem"
             android:layout_width="wrap_content"
@@ -27,6 +53,7 @@
             app:visibleIf="@{viewState.shouldShowErrorMessage}" />
 
         <ProgressBar
+            android:layout_below="@id/toolbar"
             style="@style/Widget.AppCompat.ProgressBar.Horizontal"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -36,6 +63,7 @@
             tools:visibility="visible" />
 
         <androidx.recyclerview.widget.RecyclerView
+            android:layout_below="@id/toolbar"
             tools:visibility="visible"
             android:id="@+id/recyclerView"
             android:layout_width="match_parent"

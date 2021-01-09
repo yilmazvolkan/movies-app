@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-
     <dimen name="movies_card_spacing">8dp</dimen>
     <dimen name="text_view_spacing">8dp</dimen>
+
+    <dimen name="toolbar_height">56dp</dimen>
+    <dimen name="toolbar_text_size">16sp</dimen>
 </resources>

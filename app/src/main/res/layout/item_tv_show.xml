@@ -19,6 +19,7 @@
         android:layout_marginLeft="@dimen/movies_card_spacing"
         android:layout_marginTop="@dimen/movies_card_spacing"
         android:layout_marginRight="@dimen/movies_card_spacing"
+        android:theme="@style/CardViewTheme"
         android:minHeight="200dp">
 
         <LinearLayout
@@ -65,7 +66,7 @@
                     android:layout_below="@+id/text_view_title"
                     android:layout_above="@+id/text_view_date"
                     android:text="@{viewState.tvShowOverview}"
-                    android:textColor="@android:color/darker_gray"
+                    android:textColor="@color/primary"
                     android:maxLines="8"
                     android:textStyle="bold"
                     style="@style/TextAppearance.MaterialComponents.Caption"
@@ -82,7 +83,7 @@
                     android:layout_alignParentBottom="true"
                     android:fontFamily="sans-serif"
                     android:text="@{viewState.voteAverage}"
-                    android:textColor="@android:color/darker_gray"
+                    android:textColor="@color/primary"
                     android:textStyle="bold"
                     style="@style/TextAppearance.MaterialComponents.Caption"
                     tools:text="@tools:sample/us_zipcodes"/>
@@ -97,7 +98,7 @@
                     android:layout_alignParentEnd="true"
                     android:layout_alignParentBottom="true"
                     android:text="@{viewState.tvAirDate}"
-                    android:textColor="@android:color/darker_gray"
+                    android:textColor="@color/primary"
                     android:textStyle="bold"
                     style="@style/TextAppearance.MaterialComponents.Caption"
                     tools:text="@tools:sample/date/ddmmyy"/>
